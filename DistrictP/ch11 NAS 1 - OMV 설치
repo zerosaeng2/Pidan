@@ -16,6 +16,9 @@ District P 구독링크:    / @gdsb
  2.2 sudo apt-get upgrade
  2.3 터미널에서 sudo wget -O - https://raw.githubusercontent.com/Ope... | sudo bash
 
+Pi5 > wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+
+
 3. OMV 설정
 PC에서 수행
  3.1 기본설정 (11:26)
