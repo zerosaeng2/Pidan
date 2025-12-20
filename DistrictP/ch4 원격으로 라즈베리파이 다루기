@@ -1,0 +1,18 @@
+00:36 - 1. 라즈베리파이 IP 확인
+01:42 - 2. putty로 원격 설정
+08:06 - 3. 공유기 설정
+11:43 - 3-1. 내부 고정 IP 등록
+12:51 - 3-2. 포트포워딩 & ddns 설정
+15:10 - 아웃트로
+
+1 라즈베리파이 터미널에서 ifconfig를 입력하여 IP주소 확인
+2. putty로 라즈베리파이에 접속
+3. 라즈베리파이 터미널에서 sudo apt-get install xrdp 로 원격연결 프로그램 설치
+4. sudo nano /boot/config.txt 입력
+5. 중간의 hdmi_force_hotplug=1 부분의 주석을 지움
+6. sudo raspi-config 로 설정화면 들어감
+7. 1. System Options - S5. Boot / Auto Login - B3 Desktop 선택
+8. 원격 데스크톱 연결 앱을 이용해 라즈베리파이에 접속
+9. 공유기 설정 페이지로 접속하여 라즈베리파이 IP를 고정, IP:3389포트를 포트포워딩
+9.1 공유기 설정 페이지는 PC cmd에서 ipconfig 입력하면 나오는 게이트웨이 주소
+10. ddns 설정까지 완료되면 외부에서도 원격접속 가능

@@ -1,0 +1,3 @@
+sudo apt-get install python3-flask
+
+sudo python3 main19-1.py

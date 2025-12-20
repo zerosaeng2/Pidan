@@ -1,0 +1,7 @@
+sudo passwd pidan
+
+sudo apt-get install xrdp
+
+sudo nano /boot/config.txt
+
+sudo raspi-config
