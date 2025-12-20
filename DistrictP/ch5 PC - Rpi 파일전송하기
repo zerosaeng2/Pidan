@@ -1,0 +1,42 @@
+안녕하세요!
+
+District P의 선배선배입니다.
+
+PC와 라즈베리파이 간 파일을 전송하는 법에 대해 배워보겠습니다.
+
+용량이 큰 파일을 전송할 때에는 USB 메모리, 
+
+용량이 작고 자주 수정해줘야 하는 파일들은 samba를 이용하면 편리합니다.
+
+이 기능들은 라즈비안 자체를 활용할 때 이외에도 게임기, NAS로 활용할
+
+때에도 많이 활용하니 잘 배워두셔야 합니다.
+
+앞으로도 열심히 하겠습니다!
+
+
+sudo apt install samba samba-common-bin
+
+sudo smbpasswd -a pi
+
+
+whoami
+
+sudo nano /etc/samba/smb.conf
+[pi]
+   path = /home/pi
+   writeable=Yes
+   create mask=0777
+   directory mask=0777
+   public=no
+sudo systemctl restart smbd
+
+
+[pi]
+  comment = my rpi folder
+  path = /home/pi
+  valid users = pi
+  browseable = yes
+  guest ok = no
+  read only = no
+  creat mask = 0777
