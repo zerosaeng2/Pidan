@@ -22,16 +22,6 @@ sudo smbpasswd -a pi
 
 whoami
 
-sudo nano /etc/samba/smb.conf
-[pi]
-   path = /home/pi
-   writeable=Yes
-   create mask=0777
-   directory mask=0777
-   public=no
-sudo systemctl restart smbd
-
-
 [pi]
   comment = my rpi folder
   path = /home/pi
@@ -40,3 +30,7 @@ sudo systemctl restart smbd
   guest ok = no
   read only = no
   creat mask = 0777
+
+ctrl x
+shift y enter
+sudo systemctl restart smbd
