@@ -1,0 +1,50 @@
+ 2020. 10. 24.  #jellyfin #NAS #스트리밍
+District P 구독링크:    / @gdsb  
+
+DDNS: district_p.gonetis.com 
+내부IP: 192.168.1.4 기억해둬야 함
+OMV : 내부포트 80  외부포트 12380
+ftp : 내부포트 21  외부포트 12321
+jellyfin: 내부포트 8096 외부포트 12333 
+
+
+3.5 jellyfin 미디어 서버
+  3.5.1 사전작업
+   3.5.1.1 (01:10) NAS_HDD 안에 jellyfin - config, media 폴더 생성 
+   3.5.1.2 (02:00) media 폴더 안에 movies, tv 폴더 생성 후 테스트용 영상 넣기 
+   3.5.1.3 (05:51) 접근권한 설정 - 공유폴더로 config, movies, tv 폴더 설정 
+  3.5.2 OMV-Extras Docker - Docker 설치
+   3.5.2.0 (04:36) 시스템 - 업데이트 관리 - 모두선택 후 설치 
+   3.5.2.1 (05:03) 접근 권한 관리 - 공유 폴더 - docker 권한: 모두 읽기/쓰기 저장 
+   3.5.2.2 (07:34) 라즈베리파이에 원격접속 - 파일탐색기 - /srv/dev-disk-by-label-distric_p_HDD/docker 폴더가 존재하는지 확인 후 경로 저장
+   3.5.2.3 (08:39) 라즈베리파이에서 sudo su 명령어 후
+    sudo wget -O - https://github.com/OpenMediaVault-Plu... | bash
+   3.5.2.4 (09:35) OMV-Extras - Docker 에 Docker Storage - /srv/dev-disk-by-label-distric_p_HDD/docker 지정 후 저장
+   3.5.2.5 (10:43) Docker - 설치
+   3.5.2.6 (11:00) portainer - 설치
+    (11:13) 설치가 안된다면: 라즈베리파이에 원격접속 후 터미널에서 sudo nano /etc/resolv.conf 
+    맨 아래에 
+    nameserver 8.8.8.8 
+    search 8.8.4.4
+    추가 후 저장한 뒤 원격데스크톱을 끄지 않고 다시 설치 시도
+   3.5.2.7 (12:35) 인터넷에서 192.168.1.4:9000 접속
+  3.5.3 Portainer에서 jellyfin 설치
+   3.5.3.1 (13:14) 계정 생성
+   3.5.3.2 (13:38) local 누름
+   3.5.3.3 Stack - add stack
+   3.5.3.4 (14:07) https://hub.docker.com/r/linuxserver/... 에서 복사한 내용 붙임
+   3.5.3.5 (15:09) rpi 터미널에서 admin id 입력 후 나오는 UID, GID로 바꿔줌
+   3.5.3.6 (15:40) TZ=Asia/Seoul로 설정 
+   3.5.3.7 (16:01) volumes에서는 
+     /srv/dev-disk-by-label-distric_p_HDD/NAS_HDD/jellyfin/config/jellyfin:/config
+     /srv/dev-disk-by-label-distric_p_HDD/NAS_HDD/media/tv:/data/tvshows
+     /srv/dev-disk-by-label-distric_p_HDD/NAS_HDD/media/movies:/data/movies
+   3.5.3.7 (17:44) 나머지 optional은 모두 삭제 후, deploy 버튼 누름
+    deploy가 안된다면: 라즈베리파이에 원격접속 후 터미널에서 sudo nano /etc/resolv.conf 
+    맨 아래에 
+    nameserver 8.8.8.8 
+    search 8.8.4.4
+    추가 후 저장한 뒤 원격데스크톱을 끄지 않고 다시 설치 시도
+ (18:46) jellyfin 접속 및 사용방법 소개
+
+#라즈베리파이 #NAS #jellyfin #미디어서버 #스트리밍
