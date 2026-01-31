@@ -1,0 +1,54 @@
+2020. 12. 19.  #게임기 #게임 #disable_overscan
+#1 레트로파이 설치 및 설정
+1. 레트로파이 설치 (02:05) 
+   1.1 rpi imager에서 retropie 선택 후 WRITE
+   1.2 주욱 기다리면 됨
+2. 키설정 (03:07)
+   2.1 아무키나 주욱 누름
+   2.2 키설정을 해줌(↑, ↓, ←, →, BYAX, L, R, Hotkey 정도만)
+   2.3 설정이 끝나면 아무키나 주욱 누름
+3. 비밀번호 변경 (06:04)
+   3.1 설정화면에서 RASPI-CONFIG
+   3.2 Change User Password 선택
+   3.3 비밀번호 할것 입력 후 확인
+4. WIFI 설정 (07:11)
+   4.1 설정화면에서 RASPI-CONFIG
+   4.2 Localization 선택
+   4.3 wlan contury 선택
+   4.4 GB로 선택
+   4.5 설정화면에서 WIFI 선택
+   4.6 WIFI 고르고 확인 후 기다림
+   4.7  Configuration 에서 Audio 선택 (08:38)
+   4.8 원하는 출력 설정
+5. ROM파일 넣기 (10:35)
+   5.1 emulationstation 종료
+   5.2 ifconfig 눌러서 wlan의 IP확인(이 IP를 내부고정 해두면 편함)
+   5.3 emulationstation 입력하여 메인화면으로 감
+     5.3.1 emul + tab으로 자동완성 가능
+   5.4 윈도우 탐색기에서 \\192.168.1.4 (내부IP 접속)
+   5.5 비밀번호 입력
+   5.6 roms에 파일을 zip파일채로 넣음(압축 풀어도 됨)
+6. 화면크기 조정 (15:47)
+   6.1 emulationstation 종료
+   6.2 sudo nano /boot/config.txt 입력
+   6.3 #disable_overscan=1 → disable_overscan=1 로 변경
+   6.4 Ctrl + x, Shift + y, 엔터 눌러서 빠져나옴
+   6.5 sudo reboot으로 재부팅
+
+공대선배 구독링크:    / @gdsb  
+
+
+안녕하세요 공대선배입니다!
+
+오늘은 여러가지 게임을 즐길 수 있는 레트로파이 설치법과, 각종 설정법을 배워보겠습니다^^
+
+그냥 따라만 하시면 되도록 최대한 쉽게 만들었습니다^^
+
+앞으로도 열심히 하겠습니다 감사합니다!
+
+#라즈베리파이 #레트로파이 #RetroPie #운영체제 #게임 #게임기 #에뮬레이터
+
+라즈베리파이5에서 레트로파이 RetroPie 설정
+https://m.blog.naver.com/peterkimchi/223705950224
+
+https://www.reddit.com/r/RetroPie/comments/187ix5n/raspberry_pi_5_and_retropie_installation/?tl=ko

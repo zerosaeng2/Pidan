@@ -1,0 +1,4 @@
+sudo apt install -y fonts-unfonts-core
+sudo apt install ibus-hangul -y
+
+sudo apt-get install espeak -y

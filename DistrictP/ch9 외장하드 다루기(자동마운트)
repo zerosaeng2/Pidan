@@ -1,0 +1,27 @@
+안녕하세요!
+
+District P의 공대선배입니다.
+
+오늘은 라즈베리파이에서 외장하드 다루는 법을 배워보겠습니다.
+
+라즈베리파이에서 외장하드는 쉽게 연결이 가능하지만, 새로 켤때마다 마운트를 해줘야해서 번거롭습니다.
+
+그래서 오늘은 라즈베리파이를 켤 때마다 자동으로 마운트를 해줘서 쉽게 이용할 수 있도록 해보겠습니다.
+
+챕터별 타임스탬프는 다음과 같습니다.
+
+(01:12) 외장하드 마운트
+(02:16) 사전작업
+(08:36) 자동마운트
+
+터미널에서 사용한 명령어들은 아래와 같습니다.
+
+(02:23) sudo nano /boot/config.txt
+(02:46) max_usb_current=2  safe_mode_gpio=4
+(04:43) sudo apt-cache search ntfs-3g
+(05:14) sudo apt-get install ntfs-3g
+(06:45) sudo blkid
+(08:47) sudo nano /etc/fstab
+(09:20) UUID=여러분외장하드UUID /home/pi/Desktop/my_exstorage ntfs defaults,auto,users,rw,nofail,umask=000, 0, 0
+
+앞으로도 열심히 하겠습니다!

@@ -1,0 +1,23 @@
+안녕하세요!
+
+District P의 공대선배입니다.
+
+오늘은 라즈베리파이와 웹캠을 연결하고, motion을 이용하여 CCTV로 활용하는 법에 대해서 배워보겠습니다.
+
+이전 웹캠 스트리밍편을 잘 따라오셨다면 매우 쉽게 하실 수 있습니다^^
+
+챕터별 타임스탬프는 다음과 같습니다.
+
+(01:00) cctv 녹화 파일용 폴더 만들기
+(02:07) motion.conf 파일 수정
+(07:00) 녹화 파일 확인하기
+
+터미널에서 사용한 명령어들은 아래와 같습니다.
+
+(02:18) sudo nano /etc/motion/motion.conf
+(02:52) Ctrl+w width
+(04:04) Ctrl+w ffmpeg
+(04:36) Ctrl+w target_dir
+(05:14) target_dir /home/pi/Desktop/cctv
+(05:46) Ctrl+w threshold
+앞으로도 열심히 하겠습니다!

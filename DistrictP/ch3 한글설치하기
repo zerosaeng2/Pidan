@@ -1,0 +1,5 @@
+(2:41) sudo apt install fonts-unfonts-core
+(6:26) sudo apt remove ibus ibus-hangul
+(7:12) sudo apt install fcitx fcitx-hangul
+(9:07) sudo nano /etc/default/im-config
+(9:48) IM_CONFIG_DEFAULT_MODE=auto에서 auto를 fcitx로 수정

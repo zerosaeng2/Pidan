@@ -1,0 +1,142 @@
+# 라즈베리파이의 환경설정
+sudo raspi-config
+
+# 운영체제 재부팅하기
+sudo reboot
+sudo shutdown -r now
+
+# 운영체제 종료하기
+sudo halt
+sudo shutdown -h now
+
+# 프로그램 패키지 업데이트 하기
+sudo update
+
+# 업데이트된 프로그램 패키지 업그레이드하기
+sudo upgrade
+sudo apt update
+sudo apt upgrade
+sudo rpi-eeprom-update -a
+
+# 의존성 검사를 하면서 위의 upgrade에서 수행하지 못함 업데이트를 수행합니다. (잘 사용하지 않음) 
+sudo apt-get dist-upgrade
+
+# 프로그램 패키지 설치하기
+sudo apt-get install 패키지이름
+ex> sudo apt-get install scrot
+
+# 리스트 출력
+ls: 폴더나 특정위치에 있는 파일, 폴더 목록을 보여준다.
+
+옵션
+ls -I 또는 II은 파일에 대한 파일형태, 사용권한, 하드링크번호, 소유자 이름, 그룹이름, 파일크기, 생성/수정시간, 파일명까지 모두 출력.
+-a: '.'으로 시작하는 숨김 파일을 포함하여 경로안의 모든 파일/디렉토리를 나열함.
+-m: 파일/디렉토리를 가로로 최대한 나열하여 공간대비 많은 파일들을 한번에 봄.
+-p: 디렉토리이름 끝에 '/'기호가 추가됨.
+-r: 기본 정렬 순서는 파일이름으로 오름차순인데 내림차순으로 변경가능.
+-t: 최근 파일 순으로 정렬
+-F: 파일/디렉토리 형식을 알리는 문자를 각 파일/디렉토리명 뒤에 추가한다. 실행파일은 "*", 경로는 "/", 심볼록링크는 "@", FIFO는 "I", 소켓은 "=", 일반파일 표시안함.
+-R: 하위 경로와 그안에 모든 파일들도 나열.
+-S: 파일크기가 가장 큰 것 부터 정렬해서 나열
+-X: 파일의 확장자 순서로 정렬. 확장자가 없는 파일이 가장위로 나열.
+
+현재 작업 위치 출력하기 (print working directory)
+pwd
+
+현재 폴더에 새로운 폴더 만들기(mkdir)
+mkdir
+mkdir work
+
+현 작업 위치에서 work폴더로 이동
+cd work
+
+/home 으로 이동
+cd
+
+상위(이전) 폴더로 이동
+cd..
+
+home 위치로 이동
+이동시키기
+mv
+mv work Desktop
+work 폴더를 Desktop 폴더로 이동시킵니다. (move)
+
+
+htop
+
+vcgencmd measure_temp
+
+watch -n1 "vcgencmd measure_clock arm"
+
+sudo nano /boot/firmware/config.txt
+
+/home/pidaniel/myProjects/env/bin/python /home/pidaniel/myProjects/project_21_CPU온도GUI/main21-3.pysudo
+
+⚙️ NVMe 인식 확인 (OS 단계)
+
+부팅 후:
+
+lsblk
+
+
+정상 예:
+
+nvme0n1
+ ├─nvme0n1p1
+
+
+PCIe 확인:
+
+lspci
+
+sudo apt-get install xrdp -y
+
+NVMe 데이터 유지 + OS만 재설치 (Pi5 기준)
+1️⃣ NVMe 물리적으로 분리 (강력 권장)
+2️⃣ Raspberry Pi OS Lite (64-bit) 재설치
+3️⃣ 기본 세팅
+sudo apt update && sudo apt full-upgrade -y
+sudo reboot
+
+4️⃣ OMV 설치
+wget -O - https://github.com/OpenMediaVault-Plugin-Developers/installScript/raw/master/install | sudo bash
+
+5️⃣ NVMe 다시 연결
+
+OpenMediaVault 설치 스크립트는 Debian 13(trixie)를 아직 지원하지 않습니다.
+
+OMV 공식 지원 범위는:
+
+Debian 11 (bullseye) → OMV 6
+Debian 12 (bookworm) → OMV 7 (현재 안정)
+👉 Debian 13 = testing/unstable 계열
+
+git install
+Debian/Ubuntu
+For the latest stable version for your release of Debian/Ubuntu
+
+# apt-get install git
+
+# VS Code 아이콘을 패널에 고정하기 (LXDE - Raspberry Pi)
+## 문제 상황
+- LXDE 환경에서는 간단한 GUI 우클릭으로 패널 고정이 안될 수 있음
+- 직접 설정 파일을 수정해야 함
+
+## 해결 방법
+1️⃣ 설정 파일 위치 확인
+~/.config/lxpanel-pi/panels/panel
+
+2️⃣ 설정 파일 백업 (중요!)
+cp ~/.config/lxpanel-pi/panels/panel ~/.config/lxpanel-pi/panels/panel.backup
+
+3️⃣ VS Code 런처 추가
+- launchbar 섹션의 Button 항목에 code.desktop 추가
+- 터미널 아이콘 다음에 배치됨
+
+4️⃣ 패널 재시작
+killall lxpanel-pi && lxpanel-pi &
+
+## 참고
+- 작동 안하면 로그아웃 후 재로그인
+- 원복 필요시: cp ~/.config/lxpanel-pi/panels/panel.backup ~/.config/lxpanel-pi/panels/panel

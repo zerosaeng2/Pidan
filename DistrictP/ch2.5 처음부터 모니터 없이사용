@@ -1,0 +1,14 @@
+sudo passwd pidan
+
+sudo apt-get install xrdp
+
+sudo nano /boot/config.txt
+sudo nano /boot/firmware/config.txt
+
+sudo raspi-config
+
+6 Advanced...
+
+Wayland..
+
+W11...
