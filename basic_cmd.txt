@@ -112,3 +112,31 @@ Debian 11 (bullseye) → OMV 6
 Debian 12 (bookworm) → OMV 7 (현재 안정)
 👉 Debian 13 = testing/unstable 계열
 
+git install
+Debian/Ubuntu
+For the latest stable version for your release of Debian/Ubuntu
+
+# apt-get install git
+
+# VS Code 아이콘을 패널에 고정하기 (LXDE - Raspberry Pi)
+## 문제 상황
+- LXDE 환경에서는 간단한 GUI 우클릭으로 패널 고정이 안될 수 있음
+- 직접 설정 파일을 수정해야 함
+
+## 해결 방법
+1️⃣ 설정 파일 위치 확인
+~/.config/lxpanel-pi/panels/panel
+
+2️⃣ 설정 파일 백업 (중요!)
+cp ~/.config/lxpanel-pi/panels/panel ~/.config/lxpanel-pi/panels/panel.backup
+
+3️⃣ VS Code 런처 추가
+- launchbar 섹션의 Button 항목에 code.desktop 추가
+- 터미널 아이콘 다음에 배치됨
+
+4️⃣ 패널 재시작
+killall lxpanel-pi && lxpanel-pi &
+
+## 참고
+- 작동 안하면 로그아웃 후 재로그인
+- 원복 필요시: cp ~/.config/lxpanel-pi/panels/panel.backup ~/.config/lxpanel-pi/panels/panel
